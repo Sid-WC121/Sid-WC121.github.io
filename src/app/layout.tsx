@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Providers } from './providers'
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +17,53 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <Providers>
+        <div className="flex flex-col-reverse lg:flex-row px-6 transition-all duration-500 ease-in-out py-[65px]">
+          <div className=" block lg:hidden border-dashed border border-zinc-500 w-full h-12 rounded-lg ">SideNav</div>
+          <div className="w-full overflow-x-auto">
+              <div className="w-full flex justify-center overflow-auto h-[calc(100vh - 120px)] overflow-y-auto relative">
+                  <div className="lg:pl-[180px] lg:w-[70%] w-full">{children}</div>
+              </div>
+          </div>
+
+          {/* Actual Side */}
+          <div className=" fixed hidden lg:block lg:order-first border-b border-zinc-500 w-full lg:w-[200px] h-[85%] transform -translate-y-[-65px]"> 
+            <div className=" w-full  rounded-lg px-2 pb-1 pt-7 dark:text-zinc-500 text-neutral-800 font-extrabold text-2xl">Blog</div>
+            <div className=" w-full  rounded-lg px-2 pb-7 pt-2 dark:text-zinc-500 text-neutral-800 font-extrabold text-2xl">
+              <Link href="/cv">CV</Link>
+            </div>
+            <div className="border-b border-zinc-500 w-full"></div>
+            <div className="w-full rounded-lg px-2 py-5 text-zinc-500 font-bold">CONTACT
+              <ul className="px-3 font-normal py-2">
+                <li>
+                  <a href="mailto:your-email@example.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300">
+                    Mail
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/sid-wc121/" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300">
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/Sid-WC121" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300">
+                    GitHub
+                  </a>
+                </li>
+              </ul>
+          </div>
+            <div className="coal"></div>
+            <div className="coal"></div>
+            <div className="coal"></div>
+            <div className="coal"></div>
+            <div className="coal"></div>
+            <div className="coal"></div>
+          </div>
+        </div>
+        </Providers>
+      </body>
     </html>
   );
 }

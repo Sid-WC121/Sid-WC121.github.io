@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.scale {
+    position: sticky;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.89);
+    perspective: 1000px;
+}
+
+
+.picture {
+    height: 373px;
+    width: 326px;
+    background-color: rgb(226, 226, 218);
+    background-image: linear-gradient(135deg,transparent 35%,rgba(0,0,0,.1));
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: -1;
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.45), inset -1px -1px 1px rgba(0,0,0,.5),inset 1px 1px 1px rgba(255,255,255,.5);
+}
+
+.picture:before {
+    content: '';
+    top: 20px;
+    background-color: #ccc;
+    filter: saturate(1.5) contrast(60%);
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 3px;
+    z-index: 0;
+}
+
+.picture:after {
+    content: '';
+    top: 20px;
+    background-image: linear-gradient(135deg,rgba(255,255,255,.05) 42%,transparent 55%);
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 3px;
+    box-shadow: inset 0 0 8px rgba(0,0,0,.15), inset 1px 1px 2px rgba(0,0,0,.5), inset -1px -1px 2px rgba(255,255,255,.95);
+    z-index: 1;
+}
+
+.picture p {
+    position: absolute;
+    bottom: 10px;
+    font-size: 42px;
+    color: rgba(40,20,20,.8);
+    transform: rotate(357deg);
+}
+
+.picture1 {
+    transform: perspective(2500px) rotateZ(30deg) translateY(150px) translateX(450px);
+    position: absolute;
+}
+
+.picture1:before {
+    background-image: url('https://picsum.photos/300/300');
+}
+
+.picture2 {
+    transform:  perspective(2500px) rotateY(-2deg) rotateX(10deg) rotateZ(-32deg) translateX(50px) translateY(120px) translateX(25px);
+    position: absolute;
+}
+
+.picture2:before {
+    background-image: url('https://picsum.photos/300/300?random=1');
+}
+
+.picture3 {
+    transform:  perspective(2500px) rotateY(1deg) rotateZ(10deg) rotateX(-10deg) translateX(-80px) translateY(175px);
+    position: absolute;
+}
+
+.picture3:before {
+    background-image: url('https://picsum.photos/300/300?random=2');
+}
+
+@media only screen and (max-width: 800px) {
+    .scale {
+        transform: scale(.5);
+    }
+}
+
+.font-permanent-marker {
+    font-family: 'Permanent Marker', cursive;
+}
+

@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 221, 221, 204;
+  --background-end-rgb: 221, 221, 204;
+  
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -16,18 +20,128 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.light {
+  --foreground: #000000; /* Black text for light mode */
+  --background: rgb(238, 238, 229); /* White background for light mode */
+}
+
+.dark {
+  --foreground: #ffffff; /* White text for dark mode */
+  --background: #090909; /* Black background for dark mode */
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+.coal {
+  width: 50px;
+  height: 50px;
+  background: #908d8d;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: glow 2s ease-in-out infinite alternate, move 10s ease-in-out infinite;
+  filter: brightness(150%) saturate(150%);
+  box-shadow: 0 0 10px 5px rgba(190, 185, 185, 0.3);
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+  }
+  to {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.coal:nth-child(2) {
+  background: #444444;
+  width: 70px;
+  height: 70px;
+  animation-delay: 500ms;
+}
+
+.coal:nth-child(3) {
+  background: #555;
+  width: 60px;
+  height: 60px;
+  animation-delay: 1s;
+}
+
+.coal:nth-child(4) {
+  background: #666;
+  width: 45px;
+  height: 45px;
+  animation-delay: 1500ms;
+}
+
+.coal:nth-child(5) {
+  background: #777;
+  width: 55px;
+  height: 55px;
+  animation-delay: 2s;
+}
+
+.coal:nth-child(6) {
+  background: #888;
+  width: 65px;
+  height: 65px;
+  animation-delay: 2.5s;
+}
+
+.coal:nth-child(7) {
+  background: #555;
+  width: 60px;
+  height: 60px;
+  animation-delay: 1s;
+}
+
+.coal:nth-child(8) {
+  background: #666;
+  width: 45px;
+  height: 45px;
+  animation-delay: 1500ms;
+}
+
+.coal:nth-child(9) {
+  background: #777;
+  width: 55px;
+  height: 55px;
+  animation-delay: 2s;
+}
+
+
+.coal:nth-child(5) {
+  background: #777;
+  width: 55px;
+  height: 55px;
+  animation-delay: 2s;
+}
+
+.coal:nth-child(6) {
+  background: #888;
+  width: 65px;
+  height: 65px;
+  animation-delay: 2.5s;
 }
