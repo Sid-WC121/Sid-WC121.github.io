@@ -5,7 +5,7 @@
         "image": "assets/images/projects/MeteoSwiss_TGMM1.png",
         "links": {
             "code": "https://github.com/Sid-WC121/Wind-Speed-Forecasting-using-Temporal-Graph-MLP-Mixer",
-            "slides": "assets/docs/MeteoSwiss_report.pdf",
+            "slides": "assets/docs/MeteoSwiss_slides.pdf",
             "report": "assets/docs/MeteoSwiss_report.pdf"
         },
         "year": "2025"
