@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Spatiotemporal Graph Neural Networks for Probabilistic Postprocessing of Wind Speed Forecasts",
+        "description": "A Modified Temporal Graph MLP-Mixer that achieves significant computational speedup over traditional graph-based methods by using a dual-branch architecture with factorized MLP mixing. It efficiently captures both local dynamics and global weather patterns while maintaining performance in probabilistic wind speed postprocessing.",
+        "image": "assets/images/projects/MeteoSwiss_TGMM1.png",
+        "links": {
+            "code": "https://github.com/Sid-WC121/Wind-Speed-Forecasting-using-Temporal-Graph-MLP-Mixer",
+            "slides": "assets/docs/MeteoSwiss_report.pdf",
+            "report": "assets/docs/MeteoSwiss_report.pdf"
+        },
+        "year": "2025"
+    }
+
+]

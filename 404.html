@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>404 - Page Not Found</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/src/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/src/css/notfound.css">
+</head>
+
+<body class="not-found-page">
+
+    <header></header>
+
+    <div class="not-found-container">
+        <div class="error-code">404</div>
+        <div class="error-message">PAGE NOT FOUND</div>
+        <a href="/" class="home-btn">Go Back Home</a>
+
+        <div class="box">
+            <div class="box__ghost">
+                <div class="symbol"></div>
+                <div class="symbol"></div>
+                <div class="symbol"></div>
+                <div class="symbol"></div>
+                <div class="symbol"></div>
+                <div class="symbol"></div>
+
+                <div class="box__ghost-container">
+                    <div class="box__eye-container">
+                        <div class="box__ghost-eyes" id="ghost-eyes">
+                            <div class="box__eye-left"></div>
+                            <div class="box__eye-right"></div>
+                        </div>
+                    </div>
+                    <div class="box__ghost-bottom">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="box__ghost-shadow"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/js/header.js"></script>
+    <script>
+        document.addEventListener('mousemove', function (event) {
+            const eyes = document.getElementById('ghost-eyes');
+            if (!eyes) return;
+
+            const x = event.clientX;
+            const y = event.clientY;
+
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            const yAxis = (y / windowHeight) * 300 - 150;
+            const xAxis = (x / windowWidth) * 150 - 120;
+
+            eyes.style.transform = `translate(${xAxis}%, ${yAxis}%)`;
+        });
+
+        const eyes = document.getElementById('ghost-eyes');
+        if (eyes) {
+            eyes.style.transition = 'transform 0.5s ease';
+            eyes.style.transform = 'translate(-50%, -50%)';
+            setTimeout(() => {
+                eyes.style.transition = '';
+            }, 500);
+        }
+    </script>
+</body>
+
+</html>

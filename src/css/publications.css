@@ -1,0 +1,357 @@
+:root {
+    --pub-img-width: 15%;
+    --pub-img-min-width: 120px;
+    --pub-gap: 24px;
+    --pub-award-color: #bf3a2b;
+    --pub-folder-bg: #f9f9f9;
+    --pub-scholar-color: #4a4a4a;
+}
+
+
+
+#publications-container {
+    min-height: 500px;
+    contain: layout style;
+}
+
+section#publications {
+    contain: layout;
+}
+
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    margin-bottom: 0;
+    margin-top: 40px;
+}
+
+.section-header h2 {
+    font-family: var(--font-main);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+.scholar-btn-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--pub-scholar-color);
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid var(--pub-scholar-color);
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.scholar-btn-inline:hover {
+    background-color: var(--pub-scholar-color);
+    color: white;
+}
+
+.scholar-btn-inline svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+.year-header {
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-sub);
+    margin-top: 32px;
+    margin-bottom: 16px;
+    padding-top: 8px;
+    border-top: 1px solid var(--color-border);
+    text-align: right;
+}
+
+.year-group:first-child .year-header {
+    margin-top: 16px;
+    border-top: 1px solid var(--color-border);
+}
+
+
+.year-group h2 {
+    font-family: 'Suisse', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+    font-size: 1.5rem;
+    border-top: 1px solid var(--color-border);
+
+    border-bottom: none;
+    padding-top: 10px;
+    padding-bottom: 0;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-weight: 500;
+    text-align: right;
+
+    width: 100%;
+}
+
+
+.publication-item {
+    display: flex;
+    gap: var(--pub-gap);
+    margin-bottom: 40px;
+}
+
+
+.pub-image {
+    width: var(--pub-img-width);
+    min-width: var(--pub-img-min-width);
+    flex-shrink: 0;
+}
+
+.pub-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+
+
+.pub-content {
+    flex: 1;
+    min-width: 0;
+}
+
+
+.pub-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+
+.pub-authors {
+    color: var(--color-text-sub);
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+
+.pub-venue {
+    font-style: italic;
+    color: var(--color-text-sub);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.award {
+    color: var(--pub-award-color);
+    font-weight: 600;
+    margin-left: 8px;
+    font-style: normal;
+}
+
+
+.pub-desc {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: var(--color-text-sub);
+    line-height: 1.5;
+    text-align: justify;
+}
+
+
+.pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.pub-links a {
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--color-text-main);
+    border: 1px solid var(--color-border);
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+.pub-links a:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+
+.status {
+    color: var(--color-accent-pro);
+    font-weight: 500;
+    font-size: 0.9375rem;
+}
+
+
+
+.pub-links .toggle-tab {
+    position: relative;
+    z-index: 2;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: -1px;
+}
+
+.pub-links .toggle-tab.active {
+    background: var(--pub-folder-bg);
+    border-bottom-color: var(--pub-folder-bg);
+    color: var(--color-text-main);
+}
+
+
+.folder-box {
+    display: none;
+    margin-top: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 0 4px 4px 4px;
+    background: var(--pub-folder-bg);
+    position: relative;
+    contain: layout style;
+}
+
+.folder-box.abstract-box {
+    border-top-left-radius: 0;
+}
+
+.folder-box.bibtex-box {
+    border-top-left-radius: 0;
+}
+
+
+.folder-content {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-sub);
+    text-align: justify;
+}
+
+
+.folder-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--color-border);
+    background: #f1f1f1;
+    border-radius: 0 4px 0 0;
+}
+
+
+.copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    color: #666;
+    transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+    background: #fff;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.copy-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+.folder-box pre {
+    padding: 12px 14px;
+    font-size: 0.8rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+    background: transparent;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    max-width: 100%;
+}
+
+.text-green {
+    color: #28a745;
+}
+
+
+
+
+@media (max-width: 600px) {
+    .publication-item {
+        flex-direction: column;
+    }
+
+    .pub-image {
+        display: none;
+    }
+}
+
+
+.scholar-btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.scholar-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #3655dc;
+    color: white !important;
+
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 16px;
+
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.scholar-btn:hover {
+    background-color: #2b44b0;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.scholar-btn svg {
+    margin-left: 4px;
+}
+
+
+.section-title {
+    font-family: var(--font-main);
+    font-size: 14px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 40px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 8px;
+}

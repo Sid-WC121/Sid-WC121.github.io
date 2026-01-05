@@ -1,0 +1,129 @@
+[
+    {
+        "type": "paper",
+        "year": 2025,
+        "title": "Blockchain Approach for Real-Time Authentication in 6G Machine-to-Machine Communication",
+        "authors": [
+            "Manikandan Arunachalam",
+            "Sidharth P",
+            "Sooraj S Nair",
+            "Nikhil Rajiv",
+            "Rakesh Thoppaen Suresh Babu"
+        ],
+        "venue": "IGI Global (Book Chapter)",
+        "image": "/assets/images/publications/bookchapter6G.webp",
+        "bibtex_key": "arunachalam2026blockchain",
+        "links": {
+            "chapter": "https://www.igi-global.com/gateway/chapter/386420"
+        }
+    },
+    {
+        "type": "paper",
+        "year": 2024,
+        "title": "Custom Deep CNN-Based Staircase Classification for Smart Environments",
+        "authors": [
+            "Sidharth P",
+            "Rajesh Kannan Megalingam"
+        ],
+        "venue": "ICONAT 2024 (IEEE Conference)",
+        "image": "/assets/images/publications/staircase.jpg",
+        "short_explanation": "Effective indoor navigation is pivotal for robots operating in smart homes and commercial settings. This paper delves into the intricate challenge of staircase classification and segmentation, introducing a customized deep convolutional neural network (CNN) architecture tailored for robotic applications.",
+        "bibtex_key": "sidharth2024custom",
+        "links": {
+            "paper": "https://ieeexplore.ieee.org/document/10775177",
+            "pdf": "https://5c6xpp-my.sharepoint.com/:b:/g/personal/sid-wc121_5c6xpp_onmicrosoft_com/EQ35VTkfFpxKg_ERDj6fsqIBaQSmMB3f3lFF1NwQO6FaTw?e=ALlFhk"
+        }
+    },
+    {
+        "type": "paper",
+        "year": 2024,
+        "title": "Comparative Analysis of DL Models Using Cough Audio Data for Early Detection of COVID-19",
+        "authors": [
+            "Sreedutt Ram J",
+            "Sidharth P",
+            "Sukrith Sunil",
+            "Poorna S S",
+            "Anuraj K"
+        ],
+        "venue": "ICCIDA 2024 (Springer Conference)",
+        "image": "/assets/images/publications/covid19.jpg",
+        "abstract": "Early detection of the SARS-CoV-2 virus in human mucus is now an urgent need to settle down the COVID-19 outbreaks. We present a non-invasive, quick, and efficient pre-screening methodology using cough sounds that could lead to the detection of COVID-19.",
+        "short_explanation": "Early detection of the SARS-CoV-2 virus in human mucus is now an urgent need to settle down the COVID-19 outbreaks. We present a non-invasive, quick, and efficient pre-screening methodology using cough sounds that could lead to the detection of COVID-19.",
+        "bibtex_key": "ram2024comparative",
+        "links": {
+            "paper": "https://link.springer.com/chapter/10.1007/978-981-96-0451-7_15"
+        }
+    },
+    {
+        "type": "paper",
+        "year": 2024,
+        "title": "Blockchain-Based IoT Computing Services in Medical Healthcare Solutions: A Thorough Review",
+        "authors": [
+            "Manikandan Arunachalam",
+            "Sidharth P",
+            "Sooraj S Nair",
+            "Nikhil Rajiv",
+            "Rakesh Thoppaen Suresh Babu",
+            "T Sanjay"
+        ],
+        "venue": "IGI Global (Book Chapter)",
+        "image": "/assets/images/publications/bookchapter.webp",
+        "short_explanation": "The Internet of Things (IoT) has completely changed the way patient data and healthcare monitoring are tracked and recorded. This chapter discusses the issues and challenges in health care systems and workable solutions through innovative computer technologies, such as blockchain and the IoT.",
+        "bibtex_key": "arunachalam2024blockchain",
+        "links": {
+            "chapter": "https://www.igi-global.com/chapter/blockchain-based-iot-computing-services-in-medical-healthcare-solutions/355140",
+            "pdf": "https://5c6xpp-my.sharepoint.com/:b:/g/personal/sid-wc121_5c6xpp_onmicrosoft_com/EajxZvpqWrtNk-giHIpI0jEB-pP8vZwU0tBKiFlsT432Og?e=Qf8gLu"
+        }
+    },
+    {
+        "type": "report",
+        "year": 2024,
+        "title": "Identifying Novel Biomarkers for Diabetic Nephropathy Using Deep Learning",
+        "authors": [
+            "Sidharth P",
+            "Nikhil Rajiv",
+            "Sreedutt Ram J",
+            "Sooraj S Nair"
+        ],
+        "venue": "Report",
+        "image": "/assets/images/publications/BiomarkerIdentification.jpg",
+        "short_explanation": "This study leverages advanced deep learning techniques and integrative data analysis to identify novel genetic biomarkers for Diabetic Nephropathy, aiming to enhance early diagnostic capabilities and therapeutic interventions.",
+        "links": {
+            "report": "https://5c6xpp-my.sharepoint.com/:b:/g/personal/sid-wc121_5c6xpp_onmicrosoft_com/ETIOgCrXJstNooTtTX5xP2oBsea3G0vMlirIuBUGxfUPPg?e=E9ZTfH"
+        }
+    },
+    {
+        "type": "report",
+        "year": 2024,
+        "title": "Suspicious Activity Detection: A Review",
+        "authors": [
+            "Sidharth P",
+            "Nikhil Rajiv",
+            "Sreedutt Ram J",
+            "Sooraj S Nair",
+            "Harin B S",
+            "Sourabh S K"
+        ],
+        "venue": "Report",
+        "image": "/assets/images/publications/SuspiciousActivityDetection.jpg",
+        "short_explanation": "This paper addresses challenges in suspicious activity detection by using advanced DL techniques, particularly CNN and LSTM networks, facilitating effective video data processing.",
+        "links": {
+            "report": "https://5c6xpp-my.sharepoint.com/:b:/g/personal/sid-wc121_5c6xpp_onmicrosoft_com/Ef-5xr4xV5ZFmWkQctjow2oBJu9dk8aBYrtEE4THoaNGuA?e=tQctmY"
+        }
+    },
+    {
+        "type": "report",
+        "year": 2023,
+        "title": "Simulating Environmental Echo Effects on Audio Signals Using Digital Filters",
+        "authors": [
+            "Sidharth P"
+        ],
+        "venue": "Report",
+        "image": "/assets/images/publications/DSPP_Project.jpg",
+        "short_explanation": "This paper explores the simulation of environmental echo effects on audio signals through the application of digital filters, investigating how physical environments impact sound propagation.",
+        "links": {
+            "report": "https://5c6xpp-my.sharepoint.com/:b:/g/personal/sid-wc121_5c6xpp_onmicrosoft_com/ESH8pyGLVSBFhPXQl8HoqboBvlIP2hCk5zaSIvWpST45Lw?e=sglXx6",
+            "code": "https://github.com/Sid-WC121/Audio-Echo-Modelling"
+        }
+    }
+]
