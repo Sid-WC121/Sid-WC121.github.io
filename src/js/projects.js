@@ -7,7 +7,10 @@ const renderProject = (proj) => {
     <div class="project-item">
         ${proj.image ? `<div class="proj-image"><img src="${proj.image}" alt="${proj.title}" loading="lazy"></div>` : ''}
         <div class="proj-content">
-            <div class="proj-title">${proj.title}</div>
+            <div class="proj-title">
+                ${proj.title}
+                ${proj.year ? `<span class="proj-year">(${proj.year})</span>` : ''}
+            </div>
             <div class="proj-desc">${proj.description}</div>
             <div class="proj-links">${links}</div>
         </div>

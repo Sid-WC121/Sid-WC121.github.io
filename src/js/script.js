@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.appendChild(backToTopBtn);
 
     let ticking = false;
+    let docHeight = 0;
+
+    function calcDimensions() {
+        docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    }
+
+    window.addEventListener('resize', calcDimensions, { passive: true });
+    calcDimensions();
 
     function onScroll() {
         if (!ticking) {
@@ -22,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateUI() {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         if (progressBar) {
-            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (docHeight === 0) calcDimensions();
             const scrollPercent = (docHeight > 0) ? (scrollTop / docHeight) : 0;
             progressBar.value = scrollPercent;
         }
@@ -32,8 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
             backToTopBtn.classList.remove('visible');
         }
     }
+
     window.addEventListener('scroll', onScroll, { passive: true });
-    updateUI();
+    window.requestAnimationFrame(updateUI);
+
     backToTopBtn.addEventListener('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });

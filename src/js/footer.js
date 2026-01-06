@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="footer-disclaimer">
-        Feel free to use this website's source code <a href="https://github.com/" target="_blank">github</a>.
+        Feel free to use this website's source code <a href="https://github.com/Sid-WC121/Sid-WC121.github.io" target="_blank">@Sid-WC121</a>.
     </div>
     `;
   let footerEl = document.querySelector('footer');
