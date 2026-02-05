@@ -18,10 +18,10 @@
 :root {
 
     --font-main: 'Suisse', "Segoe UI", sans-serif;
-    --fs-base: 14px;
+    --fs-base: 15px;
     --fs-h1: 34px;
     --fs-h2: 20px;
-    --fs-h3: 14px;
+    --fs-h3: 15px;
     --fw-regular: 400;
     --fw-medium: 500;
     --fw-bold: 600;
@@ -329,6 +329,42 @@ figcaption {
 }
 
 
+.experience-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+
+.experience-table td {
+    vertical-align: baseline;
+    padding-bottom: 12px;
+    color: var(--color-text-sub);
+    font-weight: var(--fw-medium);
+    line-height: 1.5;
+}
+
+.exp-date {
+    text-align: right;
+    padding-right: 24px;
+    white-space: nowrap;
+    width: 1%;
+    font-weight: var(--fw-bold);
+    color: var(--color-text-main);
+    font-size: 0.8125rem;
+}
+
+.exp-info {
+    text-align: left;
+}
+
+.exp-desc {
+    text-align: justify;
+    font-weight: var(--fw-medium);
+    color: var(--color-text-sub);
+    font-size: 0.8125rem;
+}
+
+
 footer {
     padding: 40px 24px 80px 24px;
     display: flex;
@@ -364,6 +400,7 @@ footer {
     background: var(--color-pill-bg);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
     padding: 8px 16px;
     border-radius: 50px;
     font-size: 0.8125rem;
@@ -584,5 +621,29 @@ details .news-list {
 @media (max-width: 480px) {
     .news-list {
         grid-template-columns: var(--news-date-width-mobile) 1fr;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    .experience-table td {
+        display: block;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .exp-date {
+        text-align: left;
+        width: 100%;
+        white-space: normal;
+        margin-bottom: 4px;
+        padding-right: 0;
+    }
+
+    .exp-info {
+        margin-bottom: 16px;
+        padding-bottom: 0;
     }
 }
