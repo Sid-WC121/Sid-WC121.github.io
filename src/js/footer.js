@@ -9,7 +9,7 @@
   const footerHtml = `
     <div class="footer-top">
         <div class="footer-pill">
-            ${COPYRIGHT_YEAR} ${SITE_OWNER}. All Rights Reserved.
+            ${COPYRIGHT_YEAR} ${SITE_OWNER}
         </div>
         <div class="footer-updated">
             Last updated: ${LAST_UPDATED}

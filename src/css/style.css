@@ -258,6 +258,13 @@ nav a:hover {
     align-items: center;
 }
 
+.bio-photo img {
+    width: 210px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
 
 
 section {
