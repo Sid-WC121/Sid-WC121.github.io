@@ -4,8 +4,10 @@
    This file can be safely removed if you don't want the polaroid effect.
    
    ============================================================================= */
+
+/*
 :root {
-    --pol-width: 280px;
+    --pol-width: 250px;
     --pol-height: 320px;
     --pol-bg: #e8e4d9;
     --pol-img-height: 250px;
@@ -192,3 +194,5 @@
         transform: scale(0.85);
     }
 }
+
+ */
