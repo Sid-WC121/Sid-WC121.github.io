@@ -34,7 +34,7 @@ const NAV_ITEMS = [
 
     const headerHtml = `
     <div class="header-container">
-      <div class="brand">${SITE_BRAND}</div>
+      <a href="${relativeRoot}" class="brand">${SITE_BRAND}</a>
       <nav>${navLinksHtml}</nav>
     </div>
     <progress id="progress" value="0" max="1"></progress>
