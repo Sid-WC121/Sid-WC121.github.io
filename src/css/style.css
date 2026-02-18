@@ -271,6 +271,10 @@ section {
     margin-bottom: 60px;
 }
 
+#activities ul {
+    list-style-type: circle;
+}
+
 
 .logos-row {
     display: flex;

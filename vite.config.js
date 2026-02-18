@@ -3,31 +3,46 @@ import { resolve } from 'path';
 import fs from 'fs';
 import path from 'path';
 
+const mpaPages = ['/', '/publications'];
+
+const isServablePath = (url) => {
+    const ext = path.extname(url).toLowerCase();
+    const staticExts = ['.pdf', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.ico', '.css', '.js', '.json', '.woff', '.woff2', '.ttf', '.eot'];
+    if (staticExts.includes(ext)) return true;
+
+    if (url === '/') return true;
+
+    const localPath = path.join(process.cwd(), url);
+    const publicPath = path.join(process.cwd(), 'public', url);
+
+    if (fs.existsSync(localPath)) {
+        const stat = fs.statSync(localPath);
+        if (stat.isFile()) return true;
+        if (stat.isDirectory()) {
+            return mpaPages.includes(url.replace(/\/$/, '') || '/');
+        }
+    }
+
+    if (fs.existsSync(publicPath)) {
+        const stat = fs.statSync(publicPath);
+        if (stat.isFile()) return true;
+    }
+
+    if (!ext) {
+        if (fs.existsSync(localPath + '.html')) return true;
+    }
+
+    return false;
+};
+
 const custom404Plugin = () => {
-    const middleware = (server) => {
-        server.middlewares.use((req, res, next) => {
-            if (req.headers.accept?.includes('text/html')) {
-                const url = req.url.split('?')[0];
-                const localPath = path.join(process.cwd(), 'dist', url === '/' ? 'index.html' : url);
-
-            }
-            next();
-        });
-    };
-
     return {
         name: 'custom-404',
         configureServer(server) {
             server.middlewares.use((req, res, next) => {
                 if (req.headers.accept?.includes('text/html')) {
                     const url = req.url.split('?')[0];
-                    const localPath = path.join(process.cwd(), url === '/' ? 'index.html' : url);
-                    let exists = fs.existsSync(localPath);
-                    if (!exists && !path.extname(localPath)) {
-                        if (fs.existsSync(localPath + '.html')) exists = true;
-                        else if (fs.existsSync(path.join(localPath, 'index.html'))) exists = true;
-                    }
-                    if (!exists && url !== '/404.html') {
+                    if (!isServablePath(url) && url !== '/404.html') {
                         req.url = '/404.html';
                     }
                 }
