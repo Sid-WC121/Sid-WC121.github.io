@@ -1,5 +1,36 @@
 [
     {
+        "title": "Vision-Based Gripper Aperture Estimation",
+        "description": "A lightweight regression CNN that estimates 0–87 mm fingertip aperture from a single RGB frame. Data collection is fully automated through CoppeliaSim's ZMQ API for direct prismatic-joint positions, paired with a concurrent ROS2 executor that runs autonomous navigation and gripper sweep simultaneously to generate background-diverse data. Deployed as a live inference node with a predicted vs ground-truth overlay and a rolling error chart.",
+        "image": "assets/images/projects/Robotics.png",
+        "links": {
+            "code": "https://github.com/Sid-WC121/gripper_aperture_estimator",
+            "report": "assets/docs/Robotics_report.pdf"
+        },
+        "year": "May 2026"
+    },
+    {
+        "title": "Understanding Inter-Concept Relationships in Concept-Based Models (Paper Replication)​",
+        "description": "A reproduction of the BAIC (ICML 2024) experiments across the Colored MNIST, dSprites, CUB, and CheXpert datasets, supported by automation pipelines for Concept2Vec, TCAV, CEM, metric evaluation, and reproducible experiment tracking. Resolved theoretical and codebase inconsistencies, training pipeline issues, and missing components for reliable execution, then proposed a tensorial semantic coupling formulation that generalizes concept intervention as context-aware message passing.",
+        "image": "assets/images/projects/BAICeval.png",
+        "links": {
+            "code": "https://github.com/Sid-WC121/Concept-Learning",
+            "slides": "assets/docs/BAIC_slides.pdf",
+            "report": "assets/docs/BAIC_report.pdf"
+        },
+        "year": "May 2026"
+    },
+    {
+        "title": "Visual Notebook V2",
+        "description": "A no-code visual analytics platform built with React, DuckDB, and Polars for interactive exploration of tabular datasets. A git-tree architecture supports state tracking, branching workflows, and reproducible data transformations, while a modular visualization engine generates ECharts specifications from backend APIs. Evolved from an earlier notebook-style prototype (Visual Notebook V1) with a fully redesigned frontend.",
+        "image": "assets/images/projects/",
+        "links": {
+            "code V1": "https://github.com/Sid-WC121/Visual-Notebook-V1",
+            "code V2": "https://github.com/Sid-WC121/Visual-Notebook-V2"
+        },
+        "year": "Apr - May 2026"
+    },
+    {
         "title": "Spatiotemporal Graph Neural Networks for Probabilistic Postprocessing of Wind Speed Forecasts",
         "description": "A Modified Temporal Graph MLP-Mixer that achieves significant computational speedup over traditional graph-based methods by using a dual-branch architecture with factorized MLP mixing. It efficiently captures both local dynamics and global weather patterns while maintaining performance in probabilistic wind speed postprocessing.",
         "image": "assets/images/projects/MeteoSwiss_TGMM1.png",
