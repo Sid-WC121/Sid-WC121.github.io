@@ -42,6 +42,10 @@ const custom404Plugin = () => {
             server.middlewares.use((req, res, next) => {
                 if (req.headers.accept?.includes('text/html')) {
                     const url = req.url.split('?')[0];
+                    if (url.startsWith('/blog/') && url !== '/blog/' && url !== '/blog' && !path.extname(url)) {
+                        req.url = '/blog/post.html';
+                        return next();
+                    }
                     if (!isServablePath(url) && url !== '/404.html') {
                         req.url = '/404.html';
                     }
@@ -53,6 +57,10 @@ const custom404Plugin = () => {
             server.middlewares.use((req, res, next) => {
                 if (req.headers.accept?.includes('text/html')) {
                     const url = req.url.split('?')[0];
+                    if (url.startsWith('/blog/') && url !== '/blog/' && url !== '/blog' && !path.extname(url)) {
+                        req.url = '/blog/post.html';
+                        return next();
+                    }
                     const distPath = path.join(process.cwd(), 'dist', url);
 
                     let exists = fs.existsSync(distPath);
@@ -82,6 +90,34 @@ const copyDataFilesPlugin = () => ({
             { src: 'publications/publications.bib', dest: 'publications/publications.bib' }
         ];
 
+        // Also copy the entire blog folder for dynamic fetch
+        const blogSrc = resolve(__dirname, 'blog');
+        const blogDest = resolve(__dirname, outDir, 'blog');
+        if (fs.existsSync(blogSrc)) {
+            if (!fs.existsSync(blogDest)) fs.mkdirSync(blogDest, { recursive: true });
+            const items = fs.readdirSync(blogSrc);
+            items.forEach(item => {
+                if (item.endsWith('.json') || item.endsWith('.md')) {
+                    fs.copyFileSync(path.join(blogSrc, item), path.join(blogDest, item));
+                    console.log(`Copied: blog/${item} → blog/${item}`);
+                }
+            });
+
+            // Copy blogmd subfolder containing the markdown files
+            const blogmdSrc = path.join(blogSrc, 'blogmd');
+            const blogmdDest = path.join(blogDest, 'blogmd');
+            if (fs.existsSync(blogmdSrc)) {
+                if (!fs.existsSync(blogmdDest)) fs.mkdirSync(blogmdDest, { recursive: true });
+                const mdItems = fs.readdirSync(blogmdSrc);
+                mdItems.forEach(item => {
+                    if (item.endsWith('.md')) {
+                        fs.copyFileSync(path.join(blogmdSrc, item), path.join(blogmdDest, item));
+                        console.log(`Copied: blog/blogmd/${item} → blog/blogmd/${item}`);
+                    }
+                });
+            }
+        }
+
         filesToCopy.forEach(({ src, dest }) => {
             const srcPath = resolve(__dirname, src);
             const destPath = resolve(__dirname, outDir, dest);
@@ -106,7 +142,8 @@ export default defineConfig({
             input: {
                 main: resolve(__dirname, 'index.html'),
                 publications: resolve(__dirname, 'publications/index.html'),
-                notFound: resolve(__dirname, '404.html')
+                notFound: resolve(__dirname, '404.html'),
+                blogPost: resolve(__dirname, 'blog/post.html')
             }
         }
     }

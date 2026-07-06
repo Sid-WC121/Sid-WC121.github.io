@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Blog Post - Sidharth Padmanabhan</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/src/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/src/css/social-icons.css">
+
+    <style>
+        #post-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            color: var(--color-text-sub);
+        }
+        #post-content h1, #post-content h2, #post-content h3 {
+            color: var(--color-text-main);
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            font-family: var(--font-main);
+        }
+        #post-content h1 {
+            font-size: var(--fs-h1);
+            letter-spacing: -0.03em;
+            font-weight: var(--fw-medium);
+            margin-bottom: 8px;
+            margin-top: 20px;
+        }
+        #post-content h2 {
+            font-size: var(--fs-h2);
+            font-weight: var(--fw-regular);
+        }
+        #post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            border: 1px solid var(--color-border-light);
+        }
+        #post-content p {
+            line-height: var(--lh-body);
+            margin-bottom: 16px;
+            font-size: var(--fs-base);
+            text-align: justify;
+        }
+        #post-content ul, #post-content ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+            line-height: var(--lh-body);
+        }
+        #post-content li {
+            margin-bottom: 8px;
+        }
+        #post-content pre {
+            background-color: var(--color-border-light);
+            padding: 16px;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin-bottom: 16px;
+        }
+        #post-content code {
+            font-family: monospace;
+            background-color: var(--color-border-light);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: var(--color-text-main);
+        }
+        #post-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        #post-content blockquote {
+            border-left: 4px solid var(--color-border);
+            margin: 0 0 16px 0;
+            padding-left: 16px;
+            color: var(--color-text-muted);
+            font-style: italic;
+        }
+        #post-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.95em;
+        }
+        #post-content th, #post-content td {
+            border: 1px solid var(--color-border);
+            padding: 12px 16px;
+            text-align: left;
+        }
+        #post-content th {
+            background-color: var(--color-border-light);
+            font-weight: var(--fw-bold);
+            color: var(--color-text-main);
+        }
+        #post-content tbody tr:nth-of-type(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header></header>
+
+    <main class="main-container">
+        <div id="post-content"></div>
+    </main>
+
+    <footer></footer>
+
+    <script type="module" src="/src/js/header.js"></script>
+    <script type="module" src="/src/js/footer.js"></script>
+    <script type="module" src="/src/js/script.js"></script>
+    <script type="module" src="/src/js/blog-post.js"></script>
+</body>
+
+</html>

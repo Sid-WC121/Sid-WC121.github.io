@@ -13,6 +13,14 @@
 
     <link rel="stylesheet" type="text/css" href="/src/css/style.css">
     <link rel="stylesheet" type="text/css" href="/src/css/notfound.css">
+
+    <script>
+        const path = window.location.pathname;
+        if (path.startsWith('/blog/') && path !== '/blog/' && path !== '/blog') {
+            const id = path.split('/blog/')[1].replace(/\/$/, '');
+            window.location.replace('/blog/post.html?id=' + id);
+        }
+    </script>
 </head>
 
 <body class="not-found-page">
