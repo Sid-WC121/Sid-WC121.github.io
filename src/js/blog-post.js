@@ -8,19 +8,36 @@ import 'katex/dist/katex.min.css';
    ───────────────────────────────────────────── */
 function parseBibtex(raw) {
     const entry = {};
-    // Match entry type and key
+    // Match entry type and key  (@ARTICLE{key, or @misc{key,)
     const header = raw.match(/@(\w+)\s*\{\s*([\w:.\-/]+)\s*,/);
     if (header) {
         entry.type = header[1].toLowerCase();
         entry.key  = header[2];
     }
-    // Match all field = {value} or field = "value" or field = number
-    const fieldRe = /(\w+)\s*=\s*(?:\{([^}]*)\}|"([^"]*)"|(\d+))/g;
+    // Match field = {value}, field = "value", or field = number
+    // Uses a character-level scan to handle nested/double braces
+    const fieldNameRe = /(\w+)\s*=\s*/g;
     let m;
-    while ((m = fieldRe.exec(raw)) !== null) {
-        const name  = m[1].toLowerCase();
-        const value = (m[2] ?? m[3] ?? m[4] ?? '').replace(/[{}]/g, '').trim();
-        entry[name] = value;
+    while ((m = fieldNameRe.exec(raw)) !== null) {
+        const fieldName = m[1].toLowerCase();
+        let rest = raw.slice(m.index + m[0].length);
+        let value = '';
+        if (rest[0] === '{') {
+            // Scan for matching closing brace (depth 1)
+            let depth = 0, i = 0;
+            for (; i < rest.length; i++) {
+                if (rest[i] === '{') depth++;
+                else if (rest[i] === '}') { depth--; if (depth === 0) break; }
+            }
+            value = rest.slice(1, i).replace(/[{}]/g, '').trim();
+        } else if (rest[0] === '"') {
+            const end = rest.indexOf('"', 1);
+            value = end > -1 ? rest.slice(1, end) : '';
+        } else {
+            const numM = rest.match(/^(\d+)/);
+            value = numM ? numM[1] : '';
+        }
+        if (fieldName !== 'keywords') entry[fieldName] = value; // skip keywords
     }
     return entry;
 }
@@ -62,20 +79,21 @@ function preprocessBibtex(mdText) {
     const replaced = mdText.replace(/:::bibtex\r?\n([\s\S]*?)\r?\n:::/g, (_, inner) => {
         const idx = blocks.length;
         blocks.push(inner.trim());
-        return `<bibtex-placeholder data-idx="${idx}"></bibtex-placeholder>`;
+        // HTML block comment — marked passes these through verbatim
+        return `\n<!-- BIBTEX:${idx} -->\n`;
     });
     return { replaced, blocks };
 }
 
-/* After marked renders HTML, swap placeholders with ref cards */
+/* After marked renders HTML, swap comment sentinels with ref cards */
 function postprocessBibtex(html, blocks) {
     if (!blocks.length) return html;
 
-    // Group consecutive placeholders into one <ol class="ref-list">
+    // Group consecutive sentinels into one <ul class="ref-list">
     return html.replace(
-        /(<bibtex-placeholder data-idx="\d+"><\/bibtex-placeholder>\s*)+/g,
+        /(?:<!-- BIBTEX:(\d+) -->\s*)+/g,
         (group) => {
-            const indices = [...group.matchAll(/data-idx="(\d+)"/g)].map(m => +m[1]);
+            const indices = [...group.matchAll(/BIBTEX:(\d+)/g)].map(m => +m[1]);
             const items = indices.map((idx, i) => {
                 const entry = parseBibtex(blocks[idx]);
                 return buildRefCard(entry, i + 1);
