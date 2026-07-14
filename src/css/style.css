@@ -305,7 +305,7 @@ section {
     opacity: 1;
 }
 
-figcaption {
+.logo-item figcaption {
     font-size: 11px;
     color: var(--color-text-muted);
     text-transform: uppercase;

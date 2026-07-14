@@ -1,5 +1,7 @@
 # Measuring Barron's Constant: Putting a 1993 Approximation Theorem on a GPU
 
+<div class="post-meta"> 6 July 2026 </div>
+
 Almost every time someone says neural networks "beat the curse of dimensionality," they're repeating folklore. It's a nice phrase, it gestures at something true, and it comes with no number you can check. But there's one result that does come with a number, and it's been sitting there since 1993. Andrew Barron proved a theorem with an honest constant in it. I wanted to know whether a network I actually train respects that constant, or whether it's one of those bounds that's technically correct and practically useless.
 
 So I put it on a GPU and measured.

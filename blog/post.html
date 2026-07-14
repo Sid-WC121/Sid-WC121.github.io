@@ -20,6 +20,12 @@
             margin: 0 auto;
             color: var(--color-text-sub);
         }
+        #post-content .post-meta {
+            font-size: 0.9em;
+            color: var(--color-text-muted);
+            margin: 4px 0 32px;
+            letter-spacing: 0.01em;
+        }
         #post-content h1, #post-content h2, #post-content h3 {
             color: var(--color-text-main);
             margin-top: 1.5em;
@@ -41,8 +47,22 @@
             max-width: 100%;
             height: auto;
             border-radius: var(--border-radius);
-            margin: 20px 0;
+            margin: 20px 0 6px;
             border: 1px solid var(--color-border-light);
+        }
+        #post-content figcaption {
+            display: block;
+            font-size: 0.82em;
+            color: var(--color-text-muted);
+            font-style: italic;
+            line-height: 1.5;
+            margin: 0 0 20px;
+            padding-top: 6px;
+            border-top: 1px solid var(--color-border-light);
+        }
+        #post-content figcaption b {
+            font-style: normal;
+            color: var(--color-text-sub);
         }
         #post-content p {
             line-height: var(--lh-body);
@@ -202,7 +222,7 @@
             transition: all 0.15s;
         }
         .cite-copy-btn:hover { background: var(--color-text-main); color: var(--color-bg, #fff); }
-        .cite-copy-btn.copied { background: #22c55e; color: #fff; border-color: #22c55e; }
+        .cite-copy-btn.copied { background: #4a7c5e; color: #fff; border-color: #4a7c5e; }
     </style>
 </head>
 

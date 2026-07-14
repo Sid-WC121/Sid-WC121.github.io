@@ -1,5 +1,6 @@
 import { marked } from 'marked';
 import markedKatex from 'marked-katex-extension';
+import renderMathInElement from 'katex/contrib/auto-render';
 import 'katex/dist/katex.min.css';
 
 /* ─────────────────────────────────────────────
@@ -107,11 +108,12 @@ function postprocessBibtex(html, blocks) {
    "Cite This Post" section
    ───────────────────────────────────────────── */
 function buildCiteSection(meta) {
-    const year    = (meta.date || '').split('/').pop() || new Date().getFullYear();
-    // Create a citekey like padmanabhan2026barron
+    const yearMatch = (meta.date || '').match(/\d{4}/);
+    const year    = yearMatch ? yearMatch[0] : new Date().getFullYear();
+    // Create a citekey like padmanabhan2026barronconstant (uses the unique post id)
     const lastName = (meta.author || 'Author').split(' ').pop().toLowerCase();
-    const firstWord = (meta.title || 'post').split(/\s+/)[0].toLowerCase().replace(/[^a-z]/g, '');
-    const citeKey = `${lastName}${year}${firstWord}`;
+    const postSlug = (meta.id || 'post').replace(/[^a-z0-9]/gi, '').toLowerCase();
+    const citeKey = `${lastName}${year}${postSlug}`;
 
     const url    = `https://sid-wc121.github.io/blog/${meta.id}`;
     const doi    = meta.doi || '';
@@ -199,6 +201,16 @@ const initBlogPost = async () => {
         html = postprocessBibtex(html, blocks);
 
         container.innerHTML = html;
+
+        // Re-render any math inside raw HTML blocks (e.g. <figcaption>) that
+        // marked-katex-extension skips because it only processes text nodes.
+        renderMathInElement(container, {
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$',  right: '$',  display: false },
+            ],
+            throwOnError: false,
+        });
 
         // Wrap tables for mobile horizontal scroll
         container.querySelectorAll('table').forEach(table => {

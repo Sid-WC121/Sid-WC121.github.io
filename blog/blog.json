@@ -1,10 +1,18 @@
-[
+[   {
+        "title": "I Tried to Break Barron's Bound",
+        "description": "Stress-testing Barron's bound across seven targets, five activations, and three optimizers.",
+        "image": "",
+        "id": "barron-extension",
+        "date": "14 July 2026",
+        "author": "Sidharth Padmanabhan",
+        "doi": ""
+    },
     {
         "title": "Measuring Barron's Constant: Putting a 1993 Approximation Theorem on a GPU",
-        "description": "",
+        "description": "Measuring how much of Barron's 1993 approximation bound a trained network actually uses.",
         "image": "",
         "id": "barron-constant",
-        "date": "06/07/2026",
+        "date": "06 July 2026",
         "author": "Sidharth Padmanabhan",
         "doi": ""
     }
